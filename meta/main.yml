@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  role_name: postgresql-exporter
+  author: Roman Kuzmitskii
+  description: postgresql-exporter role
+  license: GPLv2
+  min_ansible_version: 2.8
+  galaxy_tags:
+    - agent
+    - exporter
+    - metrics
+    - monitoring
+    - postgresql_exporter
+    - prometheus
+    - system
+  platforms:
+    - name: "Debian"
+      versions:
+        - "buster"
+dependencies:
+  - role: "damex.package"

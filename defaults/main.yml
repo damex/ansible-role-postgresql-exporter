@@ -1,0 +1,15 @@
+---
+postgresql_exporter_package_name: "prometheus-postgres-exporter"
+postgresql_exporter_package_version: ""
+postgresql_exporter_package_state: "present"
+postgresql_exporter_user: "prometheus"
+postgresql_exporter_group: "prometheus"
+postgresql_exporter_service_name: "prometheus-postgres-exporter"
+postgresql_exporter_systemd_dir: >-
+  /etc/systemd/system/{{ postgresql_exporter_service_name }}.service.d
+postgresql_exporter_systemd_file: >-
+  {{ postgresql_exporter_systemd_dir }}/custom.conf
+postgresql_exporter_binary: "/usr/bin/prometheus-postgres-exporter"
+postgresql_exporter_log_level: "info"
+postgresql_exporter_web_listen_address: "0.0.0.0:9187"
+postgresql_exporter_web_telemetry_path: "/metrics"

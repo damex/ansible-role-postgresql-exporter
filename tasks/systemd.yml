@@ -1,0 +1,29 @@
+---
+- name: ensure systemd
+  block:
+    - name: ensure systemd configuration
+      template:
+        src: "systemd.service.j2"
+        dest: "{{ postgresql_exporter_systemd_file }}"
+        owner: "root"
+        group: "root"
+        mode: 0644
+      register: postgresql_exporter_systemd_file
+    - name: ensure systemd configuration is reloaded
+      systemd:
+        daemon_reload: true
+      when: postgresql_exporter_systemd_file.changed
+    - name: ensure node-exporter service is enabled
+      systemd:
+        name: "{{ postgresql_exporter_service_name }}"
+        enabled: true
+    - name: ensure node-exporter service is started
+      systemd:
+        name: "{{ postgresql_exporter_service_name }}"
+        state: "started"
+    - name: ensure node-exporter service is restarted
+      systemd:
+        name: "{{ postgresql_exporter_service_name }}"
+        state: "restarted"
+      when: postgresql_exporter_systemd_file.changed
+  become: true

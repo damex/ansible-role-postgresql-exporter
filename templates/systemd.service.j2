@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+[Service]
+User={{ postgresql_exporter_user }}
+Group={{ postgresql_exporter_group }}
+ExecStart=
+ExecStart={{ postgresql_exporter_binary }} \
+  --log.level={{ postgresql_exporter_log_level }} \
+  --web.listen-address="{{ postgresql_exporter_web_listen_address }}" \
+  --web.telemetry-path="{{ postgresql_exporter_web_telemetry_path }}"

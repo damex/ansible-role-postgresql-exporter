@@ -1,0 +1,9 @@
+---
+- name: ensure postgresql-exporter package
+  include_role:
+    name: "damex.package"
+  vars:
+    package_packages:
+      - name: "{{ postgresql_exporter_package_name }}"
+        version: "{{ postgresql_exporter_package_version }}"
+        state: "{{ postgresql_exporter_package_state }}"
