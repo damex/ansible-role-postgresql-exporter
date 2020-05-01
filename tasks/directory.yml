@@ -1,0 +1,9 @@
+---
+- name: ensure systemd directory
+  file:
+    name: "{{ postgresql_exporter_systemd_dir }}"
+    state: directory
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: true

@@ -1,0 +1,8 @@
+---
+- name: ensure postgresql-exporter
+  block:
+    - import_tasks: package.yml
+    - import_tasks: directory.yml
+    - import_tasks: systemd.yml
+  tags:
+    - postgresql-exporter
