@@ -11,5 +11,19 @@ postgresql_exporter_systemd_file: >-
   {{ postgresql_exporter_systemd_dir }}/custom.conf
 postgresql_exporter_binary: "/usr/bin/prometheus-postgres-exporter"
 postgresql_exporter_log_level: "info"
+postgresql_exporter_log_format: "logger:stderr"
+postgresql_exporter_data_source_name: ""
+postgresql_exporter_data_source_uri: ""
+postgresql_exporter_data_source_uri_file: ""
+postgresql_exporter_data_source_user: ""
+postgresql_exporter_data_source_user_file: ""
+postgresql_exporter_data_source_pass: ""
+postgresql_exporter_data_source_pass_file: ""
 postgresql_exporter_web_listen_address: "0.0.0.0:9187"
 postgresql_exporter_web_telemetry_path: "/metrics"
+postgresql_exporter_disable_default_metrics: false
+postgresql_exporter_disable_settings_metrics: false
+postgresql_exporter_auto_discover_databases: false
+postgresql_exporter_extend_query_path: ""
+postgresql_exporter_constant_labels: []
+postgresql_exporter_exclude_databases: []

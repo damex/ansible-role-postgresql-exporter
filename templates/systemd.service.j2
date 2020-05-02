@@ -2,8 +2,22 @@
 [Service]
 User={{ postgresql_exporter_user }}
 Group={{ postgresql_exporter_group }}
+Environment="DATA_SOURCE_NAME={{ postgresql_exporter_data_source_name }}"
+Environment="DATA_SOURCE_URI={{ postgresql_exporter_data_source_uri }}"
+Environment="DATA_SOURCE_URI_FILE={{ postgresql_exporter_data_source_uri_file }}"
+Environment="DATA_SOURCE_USER={{ postgresql_exporter_data_source_user }}"
+Environment="DATA_SOURCE_USER_FILE={{ postgresql_exporter_data_source_user_file }}"
+Environment="DATA_SOURCE_PASS={{ postgresql_exporter_data_source_pass }}"
+Environment="DATA_SOURCE_PASS_FILE={{ postgresql_exporter_data_source_pass_file }}"
+Environment="PG_EXPORTER_WEB_LISTEN_ADDRESS={{ postgresql_exporter_web_listen_address }}"
+Environment="PG_EXPORTER_WEB_TELEMETRY_PATH={{ postgresql_exporter_web_telemetry_path }}"
+Environment="PG_EXPORTER_DISABLE_DEFAULT_METRICS={{ postgresql_exporter_disable_default_metrics }}"
+Environment="PG_EXPORTER_DISABLE_SETTINGS_METRICS={{ postgresql_exporter_disable_settings_metrics }}"
+Environment="PG_EXPORTER_AUTO_DISCOVER_DATABASES={{ postgresql_exporter_auto_discover_databases }}"
+Environment="PG_EXPORTER_EXTEND_QUERY_PATH={{ postgresql_exporter_extend_query_path | join(',') }}"
+Environment="PG_EXPORTER_CONSTANT_LABELS={{ postgresql_exporter_constant_labels | join(',') }}"
+Environment="PG_EXPORTER_EXCLUDE_DATABASES={{ postgresql_exporter_exclude_databases | join(',') }}"
 ExecStart=
 ExecStart={{ postgresql_exporter_binary }} \
   --log.level={{ postgresql_exporter_log_level }} \
-  --web.listen-address="{{ postgresql_exporter_web_listen_address }}" \
-  --web.telemetry-path="{{ postgresql_exporter_web_telemetry_path }}"
+  --log.format={{ postgresql_exporter_log_format }}
